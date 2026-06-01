@@ -112,6 +112,8 @@ export async function getDaftarKota(): Promise<{
     return { kota: [], error: error.message };
   }
 
-  const unique = [...new Set((data ?? []).map((row) => row.kota as string))];
+  const unique = Array.from(
+    new Set((data ?? []).map((row) => row.kota as string))
+  );  
   return { kota: unique, error: null };
 }
